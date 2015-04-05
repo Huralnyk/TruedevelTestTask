@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="N09-Sf-DQO">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--EventsTVC - GitHub Events-->
+        <scene sceneID="ZD4-CH-iSW">
+            <objects>
+                <tableViewController id="suu-0K-gNs" customClass="EventsTVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Aab-76-IJw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Event Cell" textLabel="gyI-Yu-bmK" detailTextLabel="bDe-dd-znU" style="IBUITableViewCellStyleSubtitle" id="85k-kU-j0Y">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="85k-kU-j0Y" id="9I4-kl-RXh">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gyI-Yu-bmK">
+                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bDe-dd-znU">
+                                            <rect key="frame" x="15" y="25" width="32" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="EHU-gt-ghg" kind="push" identifier="Show Event" id="egf-eD-5MH"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="suu-0K-gNs" id="YQV-Dg-11c"/>
+                            <outlet property="delegate" destination="suu-0K-gNs" id="fb7-lM-CmE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="GitHub Events" id="bGo-8g-D4z"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vWP-ms-Uhl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="487" y="2"/>
+        </scene>
+        <!--Web View Controller - Repo Page-->
+        <scene sceneID="Kw1-iU-R03">
+            <objects>
+                <viewController id="EHU-gt-ghg" customClass="WebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9aC-6S-DLa"/>
+                        <viewControllerLayoutGuide type="bottom" id="vuW-C4-Tgs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="q3g-9b-jUO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdM-Qh-xZ5">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gdM-Qh-xZ5" secondAttribute="trailing" id="Zxa-yB-mqw"/>
+                            <constraint firstItem="vuW-C4-Tgs" firstAttribute="top" secondItem="gdM-Qh-xZ5" secondAttribute="bottom" id="a4a-nj-n69"/>
+                            <constraint firstItem="gdM-Qh-xZ5" firstAttribute="leading" secondItem="q3g-9b-jUO" secondAttribute="leading" id="hLa-IY-2F3"/>
+                            <constraint firstItem="gdM-Qh-xZ5" firstAttribute="top" secondItem="9aC-6S-DLa" secondAttribute="bottom" id="ncq-xG-R3S"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Repo Page" id="aO0-3c-fIk"/>
+                    <connections>
+                        <outlet property="webView" destination="gdM-Qh-xZ5" id="KaS-Od-vd3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="62V-L5-400" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="941" y="2"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="d5a-2t-8Xg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N09-Sf-DQO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WOd-ba-4vd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="suu-0K-gNs" kind="relationship" relationship="rootViewController" id="VbL-os-peu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Feh-x8-8h3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="2"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

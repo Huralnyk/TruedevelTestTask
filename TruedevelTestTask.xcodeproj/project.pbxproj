@@ -19,6 +19,11 @@
 		A7A257B81AD1A91D00705B6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A257A01AD1A91900705B6F /* UIKit.framework */; };
 		A7A257C01AD1A91E00705B6F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7A257BE1AD1A91E00705B6F /* InfoPlist.strings */; };
 		A7A257C21AD1A91E00705B6F /* TruedevelTestTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A257C11AD1A91E00705B6F /* TruedevelTestTaskTests.m */; };
+		A7C4A0C01AD1ABA400EE323F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C4A0BF1AD1ABA400EE323F /* Main.storyboard */; };
+		A7C4A0C31AD1AEA700EE323F /* EventsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C4A0C21AD1AEA700EE323F /* EventsTVC.m */; };
+		A7C4A0C61AD1BBF900EE323F /* GitHubEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C4A0C51AD1BBF900EE323F /* GitHubEvent.m */; };
+		A7C4A0C91AD1BC4F00EE323F /* GitHubEventFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C4A0C81AD1BC4F00EE323F /* GitHubEventFetcher.m */; };
+		A7C4A0CC1AD1D14200EE323F /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C4A0CB1AD1D14200EE323F /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,15 @@
 		A7A257BD1AD1A91E00705B6F /* TruedevelTestTaskTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TruedevelTestTaskTests-Info.plist"; sourceTree = "<group>"; };
 		A7A257BF1AD1A91E00705B6F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7A257C11AD1A91E00705B6F /* TruedevelTestTaskTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TruedevelTestTaskTests.m; sourceTree = "<group>"; };
+		A7C4A0BF1AD1ABA400EE323F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A7C4A0C11AD1AEA700EE323F /* EventsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsTVC.h; sourceTree = "<group>"; };
+		A7C4A0C21AD1AEA700EE323F /* EventsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsTVC.m; sourceTree = "<group>"; };
+		A7C4A0C41AD1BBF900EE323F /* GitHubEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubEvent.h; sourceTree = "<group>"; };
+		A7C4A0C51AD1BBF900EE323F /* GitHubEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubEvent.m; sourceTree = "<group>"; };
+		A7C4A0C71AD1BC4E00EE323F /* GitHubEventFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubEventFetcher.h; sourceTree = "<group>"; };
+		A7C4A0C81AD1BC4F00EE323F /* GitHubEventFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubEventFetcher.m; sourceTree = "<group>"; };
+		A7C4A0CA1AD1D14200EE323F /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		A7C4A0CB1AD1D14200EE323F /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +123,9 @@
 			children = (
 				A7A257AB1AD1A91A00705B6F /* AppDelegate.h */,
 				A7A257AC1AD1A91A00705B6F /* AppDelegate.m */,
+				A7C4A0BF1AD1ABA400EE323F /* Main.storyboard */,
+				A7C4A0CE1AD1E6AD00EE323F /* Controllers */,
+				A7C4A0CD1AD1E69F00EE323F /* Model */,
 				A7A257AE1AD1A91A00705B6F /* Images.xcassets */,
 				A7A257A31AD1A91A00705B6F /* Supporting Files */,
 			);
@@ -142,6 +159,28 @@
 				A7A257BE1AD1A91E00705B6F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7C4A0CD1AD1E69F00EE323F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7C4A0C41AD1BBF900EE323F /* GitHubEvent.h */,
+				A7C4A0C51AD1BBF900EE323F /* GitHubEvent.m */,
+				A7C4A0C71AD1BC4E00EE323F /* GitHubEventFetcher.h */,
+				A7C4A0C81AD1BC4F00EE323F /* GitHubEventFetcher.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A7C4A0CE1AD1E6AD00EE323F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A7C4A0C11AD1AEA700EE323F /* EventsTVC.h */,
+				A7C4A0C21AD1AEA700EE323F /* EventsTVC.m */,
+				A7C4A0CA1AD1D14200EE323F /* WebViewController.h */,
+				A7C4A0CB1AD1D14200EE323F /* WebViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7C4A0C01AD1ABA400EE323F /* Main.storyboard in Resources */,
 				A7A257A71AD1A91A00705B6F /* InfoPlist.strings in Resources */,
 				A7A257AF1AD1A91A00705B6F /* Images.xcassets in Resources */,
 			);
@@ -239,7 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7C4A0C91AD1BC4F00EE323F /* GitHubEventFetcher.m in Sources */,
 				A7A257AD1AD1A91A00705B6F /* AppDelegate.m in Sources */,
+				A7C4A0C61AD1BBF900EE323F /* GitHubEvent.m in Sources */,
+				A7C4A0C31AD1AEA700EE323F /* EventsTVC.m in Sources */,
+				A7C4A0CC1AD1D14200EE323F /* WebViewController.m in Sources */,
 				A7A257A91AD1A91A00705B6F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +404,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TruedevelTestTask/TruedevelTestTask-Prefix.pch";
 				INFOPLIST_FILE = "TruedevelTestTask/TruedevelTestTask-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -373,6 +418,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TruedevelTestTask/TruedevelTestTask-Prefix.pch";
 				INFOPLIST_FILE = "TruedevelTestTask/TruedevelTestTask-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -437,6 +483,7 @@
 				A7A257C71AD1A91E00705B6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7A257C81AD1A91E00705B6F /* Build configuration list for PBXNativeTarget "TruedevelTestTaskTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +492,7 @@
 				A7A257CA1AD1A91E00705B6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
