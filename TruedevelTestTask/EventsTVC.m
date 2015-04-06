@@ -13,6 +13,8 @@
 
 @interface EventsTVC ()
 
+@property (nonatomic, strong) NSMutableArray *avatars;
+
 @end
 
 @implementation EventsTVC
@@ -23,7 +25,6 @@
     
     [self fetchEvents];
 }
-
 
 - (IBAction)fetchEvents
 {
@@ -38,9 +39,29 @@
         } else {
             NSLog(@"Oops! We have no data. Must fix it.");
         }
-        [self.refreshControl endRefreshing];
+        
+        [self.refreshControl endRefreshing];        
+        [self loadAvatars];
         [self.tableView reloadData];
     }];
+}
+
+- (void)loadAvatars
+{
+    for(int i = 0; i < [self.events count]; i++) {
+        GitHubEvent *event = [self.events objectAtIndex:i];
+        [GitHubEventFetcher downloadDataFromURL:event.avatarURL withCompletionHandler:^(NSData *data) {
+            UIImage *avatarImage = [UIImage imageWithData:data];
+            [self.avatars addObject:avatarImage];
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]]
+                                  withRowAnimation:UITableViewRowAnimationNone];
+        }];
+    }
+}
+
+- (UIImage *)avatarImageForIndexPath:(NSIndexPath *)indexPath
+{
+    return indexPath.row < [self.avatars count] ? self.avatars[indexPath.row] : [UIImage imageNamed:@"blank_avatar"];
 }
 
 #pragma mark - Porperties
@@ -57,6 +78,12 @@
 {
     if(!_events) _events = [[NSMutableArray alloc] init];
     return _events;
+}
+
+- (NSMutableArray *)avatars
+{
+    if(!_avatars) _avatars = [[NSMutableArray alloc] init];
+    return _avatars;
 }
 
 #pragma mark - Table View Data Source
@@ -77,7 +104,7 @@
     // Configure the cell...
     cell.textLabel.text = [[event.actorLogin stringByAppendingString:@" "] stringByAppendingString:event.repoName];
     cell.detailTextLabel.text = [[event.type stringByAppendingString:@" "] stringByAppendingString:event.dateCreated];
-    cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:event.avatarURL]];
+    cell.imageView.image = [self avatarImageForIndexPath:indexPath];
     
     return cell;
 }
