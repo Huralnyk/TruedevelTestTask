@@ -20,23 +20,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self fetchEvents];
 }
 
 
-- (void)fetchEvents
+- (IBAction)fetchEvents
 {
-    NSString *stringURL = @"https://api.github.com/events";
-    NSURL *url = [NSURL URLWithString:stringURL];
-    
-    [GitHubEventFetcher downloadDataFromURL:url withCompletionHandler:^(NSData *data) {
+    [self.refreshControl beginRefreshing];
+    [GitHubEventFetcher downloadDataFromURL:[GitHubEventFetcher URLforEventsAPI] withCompletionHandler:^(NSData *data) {
         if(data) {
             NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
             for(NSDictionary *eventDictionary in JSON) {
                 GitHubEvent *event = [[GitHubEvent alloc] initWithDictionary:eventDictionary];
                 [self.events addObject:event];
             }
+        } else {
+            NSLog(@"Oops! We have no data. Must fix it.");
         }
+        [self.refreshControl endRefreshing];
         [self.tableView reloadData];
     }];
 }

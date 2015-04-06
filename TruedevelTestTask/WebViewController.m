@@ -9,9 +9,10 @@
 #import "WebViewController.h"
 #import "GitHubEventFetcher.h"
 
-@interface WebViewController ()
+@interface WebViewController () <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (nonatomic, strong) NSURL *pageURL;
 
 @end
@@ -22,6 +23,7 @@
 {
     [super viewDidLoad];
     
+    // To avoid additional spacing at the top of WebView
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
@@ -49,6 +51,20 @@
             NSLog(@"Oops! We have no data. Must fix it.");
         }
     }];    
+}
+
+#pragma mark - Web View Delegate
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    NSLog(@"Loading...");
+    [self.spinner startAnimating];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSLog(@"Loading is finished");
+    [self.spinner stopAnimating];
 }
 
 @end

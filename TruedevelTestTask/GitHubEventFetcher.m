@@ -44,5 +44,9 @@
     [task resume];
 }
 
++ (NSURL *)URLforEventsAPI
+{
+    return [NSURL URLWithString:URL_EVENTS_API];
+}
 
 @end

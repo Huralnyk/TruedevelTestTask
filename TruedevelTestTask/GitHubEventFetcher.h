@@ -21,8 +21,14 @@
 
 #define REPO_PAGE_URL @"html_url"
 
+// url to event api
+
+#define URL_EVENTS_API @"https://api.github.com/events"
+
 @interface GitHubEventFetcher : NSObject
 
 + (void)downloadDataFromURL:(NSURL *)url withCompletionHandler:(void(^)(NSData *))completionHandler;
+
++ (NSURL *)URLforEventsAPI;
 
 @end

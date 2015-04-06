@@ -47,6 +47,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="GitHub Events" id="bGo-8g-D4z"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="ugD-ja-50s">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="fetchEvents" destination="suu-0K-gNs" eventType="valueChanged" id="r4p-4S-Dx2"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vWP-ms-Uhl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,10 +73,20 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdM-Qh-xZ5">
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="EHU-gt-ghg" id="D2N-FH-srt"/>
+                                </connections>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="VMY-2k-SX3">
+                                <rect key="frame" x="142" y="222" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="VMY-2k-SX3" secondAttribute="centerY" id="6bn-4l-8Sd"/>
+                            <constraint firstAttribute="centerX" secondItem="VMY-2k-SX3" secondAttribute="centerX" id="XVb-h8-Uy4"/>
                             <constraint firstAttribute="trailing" secondItem="gdM-Qh-xZ5" secondAttribute="trailing" id="Zxa-yB-mqw"/>
                             <constraint firstItem="vuW-C4-Tgs" firstAttribute="top" secondItem="gdM-Qh-xZ5" secondAttribute="bottom" id="a4a-nj-n69"/>
                             <constraint firstItem="gdM-Qh-xZ5" firstAttribute="leading" secondItem="q3g-9b-jUO" secondAttribute="leading" id="hLa-IY-2F3"/>
@@ -79,6 +95,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Repo Page" id="aO0-3c-fIk"/>
                     <connections>
+                        <outlet property="spinner" destination="VMY-2k-SX3" id="0tQ-8v-pHC"/>
                         <outlet property="webView" destination="gdM-Qh-xZ5" id="KaS-Od-vd3"/>
                     </connections>
                 </viewController>
